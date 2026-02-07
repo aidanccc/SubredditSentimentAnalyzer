@@ -2,10 +2,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import asyncio
-import RedditDB as rb # Your logic file
-
-# This is a relative import. The "." means "from the current folder"
-import RedditDB as rb;
+import RedditDB as rb 
 
 app = FastAPI(debug=True)
 
@@ -17,7 +14,7 @@ origins = [
     "http://127.0.0.1:5500"
 ]
 
-#This is for security functions
+#this is for security functions
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -40,11 +37,9 @@ async def create_data(request: AnalyzeRequest):
     try:
         target_subreddit = request.subredditStr 
 
-        # Using wait_for creates a 'Task', which satisfies the 
-        # timeout context manager requirement.
         score = await asyncio.wait_for(
             rb.getMentalScore(target_subreddit), 
-            timeout=45.0  # Reddit scraping can be slow
+            timeout=45.0
         )
         
         return {"subreddit": target_subreddit, "score": float(score)}

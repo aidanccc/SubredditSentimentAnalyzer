@@ -8,12 +8,10 @@ import nltk
 from nltk.corpus import stopwords
 import SentimentModel as sm
 
-# 1. Setup Environment and NLTK
 load_dotenv()
 nltk.download('stopwords', quiet=True)
 stop_words = set(stopwords.words('english'))
 
-# 2. DON'T create reddit client here - create it lazily
 reddit = None
 
 async def get_reddit_client():
@@ -90,13 +88,11 @@ async def getMentalScore(subreddit_name):
         print(f"Error in getMentalScore: {e}")
         raise e
     finally:
-        # IMPORTANT: Close the client after each request
         if reddit_client is not None:
             await reddit_client.close()
-        # Reset global so next request creates fresh client
         global reddit
         reddit = None
-        
+
 async def main():
     try:
         await getUserInfo()

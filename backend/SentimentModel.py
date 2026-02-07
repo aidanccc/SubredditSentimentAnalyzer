@@ -6,6 +6,7 @@ from tqdm import tqdm
 
 sia = SentimentIntensityAnalyzer()
 
+
 def SentimentOnSubreddit(text):
     '''
     res = {}
