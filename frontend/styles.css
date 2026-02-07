@@ -1,0 +1,103 @@
+/* --- Global Styles & Font --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* --- Main Container --- */
+body > h1 {
+  position: absolute;
+  top: 15%;
+  font-size: 2.5rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+#InputArea, .Results {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* --- Input & Button Container --- */
+#InputArea {
+  display: flex;
+  gap: 0.75rem; /* Space between input and button */
+  background-color: #1e1e1e;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid #333;
+}
+
+/* --- Input Field --- */
+#subreddit {
+  flex-grow: 1; /* Take up available space */
+  border: 1px solid #444;
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#subreddit::placeholder {
+  color: #777;
+}
+
+#subreddit:focus {
+  outline: none;
+  border-color: #6a0dad; /* Purple focus color */
+  box-shadow: 0 0 0 3px rgba(106, 13, 173, 0.3);
+}
+
+/* --- Button --- */
+#analyzer {
+  border: none;
+  background-color: #6a0dad; /* Purple */
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#analyzer:hover {
+  background-color: #7b1fa2; /* Lighter purple on hover */
+}
+
+#analyzer:active {
+  transform: scale(0.98);
+}
+
+/* --- Results Area --- */
+.Results {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  min-height: 50px; /* Give it some space */
+  text-align: center;
+  border: 1px solid #333;
+}
+
+#Results {
+  font-size: 1.1rem;
+  color: #b0b0b0;
+}
